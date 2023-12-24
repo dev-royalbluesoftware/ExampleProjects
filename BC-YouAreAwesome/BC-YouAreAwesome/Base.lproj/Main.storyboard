@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BC_YouAreAwesome" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="I Am a Developer!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AhJ-wp-xRb">
+                                <rect key="frame" x="70.666666666666686" y="99" width="252" height="37"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
+                                <color key="textColor" red="0.0" green="0.18778176262562865" blue="0.39483327963917525" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="E3i-mA-yOh">
+                                <rect key="frame" x="21" y="184" width="351" height="34"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghU-AH-b0t">
+                                        <rect key="frame" x="0.0" y="0.0" width="122" height="34"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Show Message">
+                                            <color key="titleColor" systemColor="systemIndigoColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showMessageButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DHY-1h-eQc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1bJ-zk-B9v">
+                                        <rect key="frame" x="160" y="0.0" width="191" height="34"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Show Another Message">
+                                            <color key="titleColor" systemColor="systemIndigoColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showAnotherMessageButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="09v-5h-DV0"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SWT-RF-5VJ">
+                                <rect key="frame" x="24" y="234" width="345" height="560"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <constraints>
+                            <constraint firstItem="AhJ-wp-xRb" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="1R2-5J-0rd"/>
+                            <constraint firstItem="E3i-mA-yOh" firstAttribute="top" secondItem="AhJ-wp-xRb" secondAttribute="bottom" constant="48" id="3qV-bP-0BS"/>
+                            <constraint firstItem="E3i-mA-yOh" firstAttribute="centerX" secondItem="AhJ-wp-xRb" secondAttribute="centerX" id="Rlp-B5-jRm"/>
+                            <constraint firstItem="SWT-RF-5VJ" firstAttribute="top" secondItem="E3i-mA-yOh" secondAttribute="bottom" constant="16" id="b3K-Km-Xmo"/>
+                            <constraint firstItem="SWT-RF-5VJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="24" id="ppO-KL-Hcg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="SWT-RF-5VJ" secondAttribute="bottom" constant="24" id="u01-St-TJe"/>
+                            <constraint firstItem="AhJ-wp-xRb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="yt1-dH-hmo"/>
+                            <constraint firstAttribute="trailing" secondItem="SWT-RF-5VJ" secondAttribute="trailing" constant="24" id="zln-c9-txG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView0" destination="SWT-RF-5VJ" id="Tnm-gH-GhF"/>
+                        <outlet property="messageLabel" destination="AhJ-wp-xRb" id="AJY-iv-kZq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="140" y="-2"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemGray5Color">
+            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
