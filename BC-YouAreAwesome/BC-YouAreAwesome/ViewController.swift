@@ -106,8 +106,9 @@ class ViewController: UIViewController {
         NSLayoutConstraint.activate([
             messageLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
             messageLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            messageLabel.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.10),
             
-            horizontalStackView.topAnchor.constraint(equalTo: messageLabel.bottomAnchor, constant: 48),
+            horizontalStackView.topAnchor.constraint(equalTo: messageLabel.bottomAnchor, constant: 16),
             horizontalStackView.centerXAnchor.constraint(equalTo: messageLabel.centerXAnchor),
             
             imageView0.topAnchor.constraint(equalTo: horizontalStackView.bottomAnchor, constant: 16),
