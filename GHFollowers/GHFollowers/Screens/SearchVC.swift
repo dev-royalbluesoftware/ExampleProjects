@@ -30,6 +30,7 @@ class SearchVC: UIViewController {
         view.addSubViews(logoImageView, usernameTextField, callToActionButton)
         
         setupUI()
+        createDismissKeyboardTapGesture()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,12 +39,23 @@ class SearchVC: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
-    // MARK: - Button Actions
+    // MARK: - Actions
+    
+    func createDismissKeyboardTapGesture() {
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tap)
+    }
     
     @objc func pushFollowerListVC() {
         guard isUsernameEntered else {
+            presentGFAlert(title: "Empty Username", message: "Please enter a username.  We need to know who to look for 😄.", buttonTitle: "Ok")
             return
         }
+        
+//        let followerListVC = FollowerListVC()
+//        followerListVC.username = usernameTextField.text
+//        followerListVC.title = usernameTextField.text
+//        navigationController?.pushViewController(followerListVC, animated: true)
         
         usernameTextField.resignFirstResponder()
     }
@@ -94,7 +106,10 @@ class SearchVC: UIViewController {
 // MARK: - Extension UITextField Delegate
 
 extension SearchVC: UITextFieldDelegate {
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print("Did Tap Go")
+        return true
+    }
 }
 
 
