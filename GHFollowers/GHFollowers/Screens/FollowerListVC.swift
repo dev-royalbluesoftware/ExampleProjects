@@ -5,7 +5,7 @@
 //
 // Created by jjbuell-dev
 // Copyright © Royal Blue Software
-// 
+//
 
 
 import UIKit
@@ -23,6 +23,10 @@ class FollowerListVC: UIViewController {
     
     var username: String!
     var followers: [Follower] = []
+    var page = 1
+    var hasMoreFollowers = true
+    var isSearching = false
+    var isLoadingMoreFollowers = false
     
     // MARK: - Initializers
     
@@ -50,6 +54,25 @@ class FollowerListVC: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
+    
+    // MARK: - Get Followers Network Call
+    
+    func getFollowers(username: String, page: Int) {
+        NetworkManager.sharedInstance.getFollowers(for: username, page: page) { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+                
+            case .success(let followers):
+                self.followers.append(contentsOf: followers)
+//                self.updateData()
+                
+            case .failure(let error):
+                self.presentGFAlert(title: "Stuff Happened", message: error.localizedDescription, buttonTitle: "Ok")
+            }
+        }
+    }
+    
     
     // MARK: - Configure ViewController
     
@@ -90,6 +113,18 @@ class FollowerListVC: UIViewController {
 // MARK: - Extension UICollectionView Delegate
 
 extension FollowerListVC: UICollectionViewDelegate {
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let height = scrollView.frame.size.height
+        
+        if offsetY > contentHeight - height {
+            //            guard hasMoreFollowers, !isLoadingMoreFollowers else { return }
+            
+        }
+    }
+    
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
     }

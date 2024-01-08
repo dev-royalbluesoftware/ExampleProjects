@@ -15,7 +15,8 @@ class NetworkManager {
     // MARK: - Properties
     
     static let sharedInstance = NetworkManager()
-    let baseURL = "https://api.github.com/users/"
+    private let baseURL = "https://api.github.com/users/"
+    let cache = NSCache<NSString, UIImage>()
     
     // MARK: - Initializers
     
