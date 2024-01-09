@@ -23,6 +23,7 @@ class FollowerListVC: UIViewController {
     
     var username: String!
     var followers: [Follower] = []
+    var filteredFollowers: [Follower] = []
     var page = 1
     var hasMoreFollowers = true
     var isSearching = false
@@ -48,6 +49,7 @@ class FollowerListVC: UIViewController {
         configureViewController()
         configureCollectionView()
         configureDataSource()
+        configureSearchController()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,10 +64,9 @@ class FollowerListVC: UIViewController {
             guard let self = self else { return }
             
             switch result {
-                
             case .success(let followers):
                 self.followers.append(contentsOf: followers)
-//                self.updateData()
+                self.updateData(on: self.followers)
                 
             case .failure(let error):
                 self.presentGFAlert(title: "Stuff Happened", message: error.localizedDescription, buttonTitle: "Ok")
@@ -91,6 +92,16 @@ class FollowerListVC: UIViewController {
         collectionView.register(FollowerCollectionViewCell.self, forCellWithReuseIdentifier: FollowerCollectionViewCell.reuseID)
     }
     
+    // MARK: - Configure SearchController
+    
+    func configureSearchController() {
+        let searchController = UISearchController()
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.placeholder = "Search for a username..."
+        searchController.obscuresBackgroundDuringPresentation = false
+        navigationItem.searchController = searchController
+    }
+    
     // MARK: - CollectionView Data Source
     
     func configureDataSource() {
@@ -113,6 +124,7 @@ class FollowerListVC: UIViewController {
 // MARK: - Extension UICollectionView Delegate
 
 extension FollowerListVC: UICollectionViewDelegate {
+    
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
@@ -124,8 +136,34 @@ extension FollowerListVC: UICollectionViewDelegate {
         }
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let activeArray = isSearching ? filteredFollowers : followers
+        let follower = activeArray[indexPath.item]
+        // information for passing info to new VC
+        let destinationVC = UserInfoVC()
+        destinationVC.username = follower.login
         
+        let navigationController = UINavigationController(rootViewController: destinationVC)
+        present(navigationController, animated: true)
+    }
+}
+
+// MARK: - Extension SearchResultsUpdating
+
+extension FollowerListVC: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let filter = searchController.searchBar.text, !filter.isEmpty else {
+            filteredFollowers.removeAll()
+            updateData(on: followers)
+            isSearching = false
+            return
+        }
+        
+        isSearching = true
+        filteredFollowers = followers.filter {
+            $0.login.lowercased().contains(filter.lowercased()) }
+        updateData(on: filteredFollowers)
+        setNeedsUpdateContentUnavailableConfiguration()
     }
 }

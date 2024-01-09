@@ -33,6 +33,9 @@
 		2C7C7FF12B48A81400AA67D4 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7C7FF02B48A81400AA67D4 /* NetworkManager.swift */; };
 		2C7C7FF32B48A93F00AA67D4 /* GFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7C7FF22B48A93F00AA67D4 /* GFError.swift */; };
 		2C7C7FF62B48DC3900AA67D4 /* GFAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7C7FF52B48DC3900AA67D4 /* GFAvatarImageView.swift */; };
+		2CF8B1BD2B4CACE200B42178 /* GFDataLoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8B1BC2B4CACE200B42178 /* GFDataLoadingVC.swift */; };
+		2CF8B1BF2B4CAE8C00B42178 /* GFEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8B1BE2B4CAE8C00B42178 /* GFEmptyStateView.swift */; };
+		2CF8B1C12B4D125F00B42178 /* UserInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8B1C02B4D125F00B42178 /* UserInfoVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +67,9 @@
 		2C7C7FF02B48A81400AA67D4 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		2C7C7FF22B48A93F00AA67D4 /* GFError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFError.swift; sourceTree = "<group>"; };
 		2C7C7FF52B48DC3900AA67D4 /* GFAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAvatarImageView.swift; sourceTree = "<group>"; };
+		2CF8B1BC2B4CACE200B42178 /* GFDataLoadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFDataLoadingVC.swift; sourceTree = "<group>"; };
+		2CF8B1BE2B4CAE8C00B42178 /* GFEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFEmptyStateView.swift; sourceTree = "<group>"; };
+		2CF8B1C02B4D125F00B42178 /* UserInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +163,7 @@
 				2C7C7FC72B47812600AA67D4 /* SearchVC.swift */,
 				2C7C7FC92B47815B00AA67D4 /* FavoritesListVC.swift */,
 				2C7C7FE02B47960700AA67D4 /* FollowerListVC.swift */,
+				2CF8B1C02B4D125F00B42178 /* UserInfoVC.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -200,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				2C7C7FDE2B47938B00AA67D4 /* GFAlertVC.swift */,
+				2CF8B1BC2B4CACE200B42178 /* GFDataLoadingVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -216,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				2C7C7FED2B487D1B00AA67D4 /* GFAlertContainerView.swift */,
+				2CF8B1BE2B4CAE8C00B42178 /* GFEmptyStateView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -328,7 +337,9 @@
 				2C7C7FEE2B487D1B00AA67D4 /* GFAlertContainerView.swift in Sources */,
 				2C7C7FCA2B47815B00AA67D4 /* FavoritesListVC.swift in Sources */,
 				2C7C7FF32B48A93F00AA67D4 /* GFError.swift in Sources */,
+				2CF8B1BD2B4CACE200B42178 /* GFDataLoadingVC.swift in Sources */,
 				2C7C7FD52B47897700AA67D4 /* UIView+Ext.swift in Sources */,
+				2CF8B1BF2B4CAE8C00B42178 /* GFEmptyStateView.swift in Sources */,
 				2C7C7FDC2B47928500AA67D4 /* UIViewController+Ext.swift in Sources */,
 				2C7C7FF12B48A81400AA67D4 /* NetworkManager.swift in Sources */,
 				2C7C7FBE2B477B2A00AA67D4 /* UIView+Preview.swift in Sources */,
@@ -349,6 +360,7 @@
 				2C7C7FEA2B487ACC00AA67D4 /* GFTitleLabel.swift in Sources */,
 				2C7C7FC82B47812600AA67D4 /* SearchVC.swift in Sources */,
 				2C7C7FEC2B487C6500AA67D4 /* GFBodyLabel.swift in Sources */,
+				2CF8B1C12B4D125F00B42178 /* UserInfoVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

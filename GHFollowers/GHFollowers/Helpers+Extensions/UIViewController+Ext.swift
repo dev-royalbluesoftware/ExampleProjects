@@ -10,6 +10,8 @@
 
 import UIKit
 
+fileprivate var containerView: UIView! // anything can use this variable
+
 extension UIViewController {
     
     // MARK: - Present GFAlert
